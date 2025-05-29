@@ -1276,38 +1276,165 @@ class GenerativeArt {
     }
     
     generateOGImage() {
-        // Generate a special composite image for OG image
+        // Save current state
+        const originalTime = this.time;
+        const originalPattern = this.pattern;
+        
+        // Create stunning OG image with dramatic gradient background
         this.ctx.clearRect(0, 0, this.width, this.height);
         
-        // Create a beautiful composite of multiple patterns
-        const patterns = [0, 1, 6, 7, 10]; // Flow Field, Fractal Tree, Particles, Mandelbrot, Kaleidoscope
+        // Create dramatic gradient background
+        const gradient = this.ctx.createLinearGradient(0, 0, this.width, this.height);
+        gradient.addColorStop(0, '#0f0f23');
+        gradient.addColorStop(0.3, '#1a1a3e');
+        gradient.addColorStop(0.7, '#2d1b69');
+        gradient.addColorStop(1, '#0f0f23');
+        this.ctx.fillStyle = gradient;
+        this.ctx.fillRect(0, 0, this.width, this.height);
         
-        for (let i = 0; i < patterns.length; i++) {
-            this.pattern = patterns[i];
-            this.ctx.globalAlpha = 0.3;
-            
-            switch(this.pattern) {
-                case 0: this.drawFlowField(); break;
-                case 1: this.drawFractalTree(); break;
-                case 6: this.drawParticleSystem(); break;
-                case 7: this.drawMandelbrot(); break;
-                case 10: this.drawKaleidoscope(); break;
-            }
+        // Add subtle noise texture
+        for (let i = 0; i < 1000; i++) {
+            const x = Math.random() * this.width;
+            const y = Math.random() * this.height;
+            this.ctx.fillStyle = `rgba(255, 255, 255, ${Math.random() * 0.1})`;
+            this.ctx.fillRect(x, y, 1, 1);
         }
+        
+        // Create dynamic artistic patterns with fixed time for consistency
+        this.time = 100;
+        
+        // Main focal pattern - large mandelbrot
+        this.pattern = 7;
+        this.ctx.globalAlpha = 0.8;
+        this.drawMandelbrot();
+        
+        // Overlay spiral pattern
+        this.pattern = 3;
+        this.ctx.globalAlpha = 0.4;
+        this.drawSpiral();
+        
+        // Add particle effects
+        this.pattern = 6;
+        this.ctx.globalAlpha = 0.6;
+        this.drawParticleSystem();
+        
+        // Kaleidoscope overlay for geometric beauty
+        this.pattern = 10;
+        this.ctx.globalAlpha = 0.3;
+        this.drawKaleidoscope();
         
         this.ctx.globalAlpha = 1.0;
         
-        // Add title text
-        this.ctx.fillStyle = 'rgba(0, 0, 0, 0.7)';
-        this.ctx.fillRect(0, this.height - 120, this.width, 120);
+        // Create modern glass-morphism title area
+        const titleAreaHeight = 180;
+        const titleY = this.height - titleAreaHeight;
         
-        this.ctx.fillStyle = '#ffffff';
-        this.ctx.font = 'bold 48px Arial';
+        // Glass background
+        const glassGradient = this.ctx.createLinearGradient(0, titleY, 0, this.height);
+        glassGradient.addColorStop(0, 'rgba(255, 255, 255, 0.1)');
+        glassGradient.addColorStop(1, 'rgba(0, 0, 0, 0.3)');
+        this.ctx.fillStyle = glassGradient;
+        this.ctx.fillRect(0, titleY, this.width, titleAreaHeight);
+        
+        // Glass border
+        this.ctx.strokeStyle = 'rgba(255, 255, 255, 0.2)';
+        this.ctx.lineWidth = 2;
+        this.ctx.beginPath();
+        this.ctx.moveTo(0, titleY);
+        this.ctx.lineTo(this.width, titleY);
+        this.ctx.stroke();
+        
+        // Backdrop blur simulation with multiple layers
+        for (let i = 0; i < 3; i++) {
+            this.ctx.fillStyle = `rgba(0, 0, 0, 0.1)`;
+            this.ctx.fillRect(0, titleY + i, this.width, titleAreaHeight - i);
+        }
+        
+        // Main title with glow effect
         this.ctx.textAlign = 'center';
-        this.ctx.fillText('Generative Art Gallery', this.width / 2, this.height - 70);
+        this.ctx.textBaseline = 'middle';
         
-        this.ctx.font = '24px Arial';
-        this.ctx.fillText('22 Interactive Algorithmic Patterns', this.width / 2, this.height - 30);
+        // Glow effect
+        this.ctx.shadowColor = '#00ffff';
+        this.ctx.shadowBlur = 20;
+        this.ctx.fillStyle = '#00ffff';
+        this.ctx.font = 'bold 64px "SF Pro Display", -apple-system, BlinkMacSystemFont, sans-serif';
+        this.ctx.fillText('GENERATIVE', this.width / 2, titleY + 50);
+        
+        // Second line with different color
+        this.ctx.shadowColor = '#ff6b6b';
+        this.ctx.shadowBlur = 20;
+        this.ctx.fillStyle = '#ff6b6b';
+        this.ctx.font = 'bold 64px "SF Pro Display", -apple-system, BlinkMacSystemFont, sans-serif';
+        this.ctx.fillText('ART', this.width / 2, titleY + 120);
+        
+        // Subtitle
+        this.ctx.shadowColor = 'rgba(255, 255, 255, 0.8)';
+        this.ctx.shadowBlur = 10;
+        this.ctx.fillStyle = '#ffffff';
+        this.ctx.font = '28px "SF Pro Display", -apple-system, BlinkMacSystemFont, sans-serif';
+        this.ctx.fillText('22 Interactive Algorithmic Masterpieces', this.width / 2, titleY + 155);
+        
+        // Reset shadow
+        this.ctx.shadowBlur = 0;
+        
+        // Add decorative elements
+        for (let i = 0; i < 6; i++) {
+            const x = 60 + i * 120;
+            const y = titleY + 20;
+            
+            this.ctx.fillStyle = `hsl(${i * 60}, 70%, 60%)`;
+            this.ctx.beginPath();
+            this.ctx.arc(x, y, 3, 0, Math.PI * 2);
+            this.ctx.fill();
+            
+            // Connecting lines
+            if (i < 5) {
+                this.ctx.strokeStyle = `hsla(${i * 60}, 70%, 60%, 0.5)`;
+                this.ctx.lineWidth = 1;
+                this.ctx.beginPath();
+                this.ctx.moveTo(x + 3, y);
+                this.ctx.lineTo(x + 117, y);
+                this.ctx.stroke();
+            }
+        }
+        
+        // Corner accent elements
+        const cornerSize = 40;
+        this.ctx.strokeStyle = 'rgba(0, 255, 255, 0.6)';
+        this.ctx.lineWidth = 3;
+        
+        // Top left
+        this.ctx.beginPath();
+        this.ctx.moveTo(20, 20 + cornerSize);
+        this.ctx.lineTo(20, 20);
+        this.ctx.lineTo(20 + cornerSize, 20);
+        this.ctx.stroke();
+        
+        // Top right
+        this.ctx.beginPath();
+        this.ctx.moveTo(this.width - 20 - cornerSize, 20);
+        this.ctx.lineTo(this.width - 20, 20);
+        this.ctx.lineTo(this.width - 20, 20 + cornerSize);
+        this.ctx.stroke();
+        
+        // Bottom right
+        this.ctx.beginPath();
+        this.ctx.moveTo(this.width - 20, this.height - 20 - cornerSize);
+        this.ctx.lineTo(this.width - 20, this.height - 20);
+        this.ctx.lineTo(this.width - 20 - cornerSize, this.height - 20);
+        this.ctx.stroke();
+        
+        // Bottom left
+        this.ctx.beginPath();
+        this.ctx.moveTo(20 + cornerSize, this.height - 20);
+        this.ctx.lineTo(20, this.height - 20);
+        this.ctx.lineTo(20, this.height - 20 - cornerSize);
+        this.ctx.stroke();
+        
+        // Restore original state
+        this.time = originalTime;
+        this.pattern = originalPattern;
         
         return this.canvas.toDataURL('image/png');
     }
