@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generative Art</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: #111;
+            font-family: 'Courier New', monospace;
+            display: flex;
+            min-height: 100vh;
+        }
+        .sidebar {
+            width: 250px;
+            background: #1a1a1a;
+            padding: 20px;
+            box-sizing: border-box;
+            overflow-y: auto;
+            border-right: 2px solid #333;
+        }
+        .main-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        .container {
+            text-align: center;
+        }
+        canvas {
+            border: 1px solid #333;
+            background: #000;
+            cursor: crosshair;
+        }
+        .controls {
+            margin-top: 20px;
+            color: #fff;
+        }
+        button {
+            background: #333;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            margin: 5px;
+            cursor: pointer;
+            border-radius: 3px;
+            font-family: 'Courier New', monospace;
+        }
+        button:hover {
+            background: #555;
+        }
+        .sidebar h3 {
+            color: #fff;
+            margin-top: 0;
+            margin-bottom: 20px;
+            font-size: 18px;
+            border-bottom: 1px solid #333;
+            padding-bottom: 10px;
+        }
+        .pattern-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .pattern-item {
+            background: #333;
+            color: #fff;
+            padding: 12px 15px;
+            margin: 5px 0;
+            border-radius: 3px;
+            cursor: pointer;
+            transition: background 0.2s;
+            font-size: 14px;
+            border: 2px solid transparent;
+        }
+        .pattern-item:hover {
+            background: #555;
+        }
+        .pattern-item.active {
+            background: #007acc;
+            border-color: #0099ff;
+        }
+        .pattern-item.active:hover {
+            background: #0088bb;
+        }
+        .info {
+            color: #888;
+            margin-top: 10px;
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+    <div class="sidebar">
+        <h3>Generative Art Patterns</h3>
+        <ul class="pattern-list">
+            <li class="pattern-item" data-pattern="0">Flow Field</li>
+            <li class="pattern-item" data-pattern="1">Fractal Tree</li>
+            <li class="pattern-item" data-pattern="2">Voronoi Diagram</li>
+            <li class="pattern-item" data-pattern="3">Spiral</li>
+            <li class="pattern-item" data-pattern="4">Network</li>
+            <li class="pattern-item" data-pattern="5">Wave Interference</li>
+            <li class="pattern-item" data-pattern="6">Particle System</li>
+            <li class="pattern-item" data-pattern="7">Mandelbrot Set</li>
+            <li class="pattern-item" data-pattern="8">DNA Helix</li>
+            <li class="pattern-item" data-pattern="9">Lightning</li>
+            <li class="pattern-item" data-pattern="10">Kaleidoscope</li>
+            <li class="pattern-item" data-pattern="11">Fluid Simulation</li>
+            <li class="pattern-item" data-pattern="12">L-System Plant</li>
+            <li class="pattern-item" data-pattern="13">Cellular Automata</li>
+            <li class="pattern-item" data-pattern="14">Fourier Visualization</li>
+            <li class="pattern-item" data-pattern="15">Lorenz Attractor</li>
+            <li class="pattern-item" data-pattern="16">Fibonacci Spiral</li>
+            <li class="pattern-item" data-pattern="17">Percolation Theory</li>
+            <li class="pattern-item" data-pattern="18">Fractal Mountains</li>
+            <li class="pattern-item" data-pattern="19">N-Body Gravity</li>
+            <li class="pattern-item" data-pattern="20">Boids Simulation</li>
+            <li class="pattern-item" data-pattern="21">Julia Set</li>
+        </ul>
+    </div>
+    
+    <div class="main-content">
+        <div class="container">
+            <canvas id="canvas" width="800" height="600"></canvas>
+            <div class="controls">
+                <button onclick="generateNew()">Random Pattern</button>
+                <button onclick="toggleAnimation()">Toggle Animation</button>
+                <button onclick="saveImage()">Save Image</button>
+            </div>
+            <div class="info">
+                Click and drag to interact • Press SPACE for new pattern
+            </div>
+        </div>
+    </div>
+    <script src="generative-art.js"></script>
+</body>
+</html>
