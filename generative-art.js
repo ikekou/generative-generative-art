@@ -1480,17 +1480,6 @@ function saveImage() {
     art.saveImage();
 }
 
-function generateOGImageFile() {
-    const dataURL = art.generateOGImage();
-    const link = document.createElement('a');
-    link.download = 'og-image.png';
-    link.href = dataURL;
-    link.click();
-    
-    // Restore original pattern
-    art.generatePattern();
-}
-
 window.addEventListener('load', () => {
     art = new GenerativeArt();
 });
