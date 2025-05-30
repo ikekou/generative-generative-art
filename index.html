@@ -112,6 +112,39 @@
             margin-top: 10px;
             font-size: 12px;
         }
+        .pattern-description {
+            background: #222;
+            border: 1px solid #444;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 10px 0;
+            color: #ccc;
+            font-size: 14px;
+            line-height: 1.5;
+            display: none;
+        }
+        .pattern-description.active {
+            display: block;
+            animation: fadeIn 0.3s ease-in-out;
+        }
+        .pattern-description h4 {
+            margin: 0 0 10px 0;
+            color: #fff;
+            font-size: 16px;
+        }
+        .algorithm-tag {
+            background: #444;
+            color: #0ff;
+            padding: 2px 8px;
+            border-radius: 12px;
+            font-size: 11px;
+            margin-right: 5px;
+            display: inline-block;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
     </style>
 </head>
 <body>
@@ -154,6 +187,117 @@
             </div>
             <div class="info">
                 Click and drag to interact • Press SPACE for new pattern
+            </div>
+            
+            <!-- Pattern Descriptions -->
+            <div id="pattern-description-0" class="pattern-description">
+                <h4>Flow Field <span class="algorithm-tag">Perlin Noise</span><span class="algorithm-tag">Vector Field</span></h4>
+                <p>自然界の風や水の流れを数学的に再現したパターン。パーリンノイズという特殊な乱数を使って、なめらかで有機的な流れを作り出します。各点での風向きを計算し、線を引くことで美しい流線を描画。気象学や流体力学でも使われる手法です。</p>
+            </div>
+            
+            <div id="pattern-description-1" class="pattern-description">
+                <h4>Fractal Tree <span class="algorithm-tag">Recursion</span><span class="algorithm-tag">Biomimicry</span></h4>
+                <p>自然の木の成長パターンを再現する再帰アルゴリズム。1本の幹から2本の枝が分かれ、それぞれの枝からまた2本の枝が出る...この単純なルールを繰り返すことで、複雑で美しい樹木構造が生まれます。自己相似性という数学的性質を持っています。</p>
+            </div>
+            
+            <div id="pattern-description-2" class="pattern-description">
+                <h4>Voronoi Diagram <span class="algorithm-tag">Computational Geometry</span><span class="algorithm-tag">Space Partitioning</span></h4>
+                <p>複数の点（種子）から等距離にある境界線を描いた図形。「最寄りの店舗はどこか？」を視覚化する手法としても使われます。細胞の形、キリンの模様、都市計画など、自然や社会の様々な現象で見られる基本的なパターンです。</p>
+            </div>
+            
+            <div id="pattern-description-3" class="pattern-description">
+                <h4>Spiral <span class="algorithm-tag">Polar Coordinates</span><span class="algorithm-tag">Mathematical Functions</span></h4>
+                <p>極座標系を使って描かれる美しい螺旋パターン。角度と半径の関係を数式で表現し、時間とともに変化させることでダイナミックな動きを実現。貝殻の形、銀河の腕、台風の渦など、自然界でよく見られる基本形状です。</p>
+            </div>
+            
+            <div id="pattern-description-4" class="pattern-description">
+                <h4>Network <span class="algorithm-tag">Graph Theory</span><span class="algorithm-tag">Physics Simulation</span></h4>
+                <p>ノード（点）とエッジ（線）で構成されるネットワーク構造。物理シミュレーションにより、近い点同士が引き合い、遠い点同士が反発する力学系を再現。SNSの人間関係、インターネットの構造、脳神経ネットワークなどの可視化に使われます。</p>
+            </div>
+            
+            <div id="pattern-description-5" class="pattern-description">
+                <h4>Wave Interference <span class="algorithm-tag">Wave Physics</span><span class="algorithm-tag">Superposition</span></h4>
+                <p>複数の波源から発生する波が重なり合って生まれる干渉パターン。各点での波の振幅を足し合わせることで、美しい同心円と干渉縞を作り出します。水面の波紋、音響学、量子力学など、物理学の基本現象を視覚化したものです。</p>
+            </div>
+            
+            <div id="pattern-description-6" class="pattern-description">
+                <h4>Particle System <span class="algorithm-tag">Physics Engine</span><span class="algorithm-tag">Emergence</span></h4>
+                <p>多数の小さな粒子が物理法則に従って動くシステム。各粒子は重力、風力、反発力などの影響を受けて複雑な軌道を描きます。単純なルールから複雑で美しいパターンが「創発」される典型例。ゲームのエフェクトや科学シミュレーションで広く使用されています。</p>
+            </div>
+            
+            <div id="pattern-description-7" class="pattern-description">
+                <h4>Mandelbrot Set <span class="algorithm-tag">Complex Numbers</span><span class="algorithm-tag">Fractals</span></h4>
+                <p>数学史上最も美しいとされるフラクタル図形。複素数を使った単純な数式「z = z² + c」を繰り返し計算し、発散するかどうかで色分けします。無限にズームしても同じような模様が現れる「自己相似性」を持つ、数学の神秘を体現したアートです。</p>
+            </div>
+            
+            <div id="pattern-description-8" class="pattern-description">
+                <h4>DNA Helix <span class="algorithm-tag">3D Projection</span><span class="algorithm-tag">Parametric Curves</span></h4>
+                <p>生命の設計図であるDNAの二重螺旋構造を数学的に再現。三次元空間での螺旋運動を二次元に投影し、遺伝情報を担う塩基対の結合も表現します。生命科学と数学の美しい融合を示すパターンです。</p>
+            </div>
+            
+            <div id="pattern-description-9" class="pattern-description">
+                <h4>Lightning <span class="algorithm-tag">L-System</span><span class="algorithm-tag">Stochastic Process</span></h4>
+                <p>稲妻の放電パターンを確率的アルゴリズムで再現。枝分かれする軌道は、抵抗の少ない経路を辿る電気的性質を模倣しています。自然界の複雑な分岐パターンを、ランダム性と物理法則の組み合わせで表現した例です。</p>
+            </div>
+            
+            <div id="pattern-description-10" class="pattern-description">
+                <h4>Kaleidoscope <span class="algorithm-tag">Symmetry Group</span><span class="algorithm-tag">Geometric Transformation</span></h4>
+                <p>万華鏡の美しい対称パターンを数学的に再現。基本図形を回転・反射変換によって複製し、規則正しい対称性を作り出します。群論という数学分野の応用例で、結晶学や装飾芸術でも見られる根本的な美の法則を表現しています。</p>
+            </div>
+            
+            <div id="pattern-description-11" class="pattern-description">
+                <h4>Fluid Simulation <span class="algorithm-tag">Navier-Stokes</span><span class="algorithm-tag">Grid-based Method</span></h4>
+                <p>流体の動きをコンピュータで再現する計算流体力学の簡易版。格子状に分割した空間で、密度と速度の変化を計算します。映画のCGエフェクトや気象予測でも使われる、物理現象の数値シミュレーション技術です。</p>
+            </div>
+            
+            <div id="pattern-description-12" class="pattern-description">
+                <h4>L-System Plant <span class="algorithm-tag">L-System</span><span class="algorithm-tag">Formal Grammar</span></h4>
+                <p>植物の成長パターンを文字列書き換えルールで表現するL-システム。「F→F[+F]F[-F][F]」のような文法規則を反復適用することで、リアルな植物構造を生成。生物学者リンデンマイヤーが考案した、生命の成長を記述する数学的手法です。</p>
+            </div>
+            
+            <div id="pattern-description-13" class="pattern-description">
+                <h4>Cellular Automata <span class="algorithm-tag">Conway's Game</span><span class="algorithm-tag">Emergence</span></h4>
+                <p>格子状の各セルが近隣セルの状態に応じて更新される離散的システム。コンウェイの「ライフゲーム」が有名で、単純なルールから複雑なパターンが創発します。計算理論、生物学、社会科学など幅広い分野で応用される重要な概念です。</p>
+            </div>
+            
+            <div id="pattern-description-14" class="pattern-description">
+                <h4>Fourier Visualization <span class="algorithm-tag">Fourier Series</span><span class="algorithm-tag">Harmonic Analysis</span></h4>
+                <p>複雑な波形を単純な正弦波の組み合わせで表現するフーリエ解析の可視化。回転する円（エピサイクル）の軌跡として波形を描画します。音響工学、画像処理、量子力学など、現代科学技術の基盤となる数学理論です。</p>
+            </div>
+            
+            <div id="pattern-description-15" class="pattern-description">
+                <h4>Lorenz Attractor <span class="algorithm-tag">Chaos Theory</span><span class="algorithm-tag">Strange Attractor</span></h4>
+                <p>カオス理論の象徴的存在である奇妙なアトラクター。気象学者ローレンツが発見した3つの微分方程式系で、初期値のわずかな差が全く異なる軌道を生む「バタフライ効果」を示します。決定論的でありながら予測不可能な複雑系の典型例です。</p>
+            </div>
+            
+            <div id="pattern-description-16" class="pattern-description">
+                <h4>Fibonacci Spiral <span class="algorithm-tag">Golden Ratio</span><span class="algorithm-tag">Number Theory</span></h4>
+                <p>フィボナッチ数列と黄金比から生まれる自然界で最も美しい螺旋。ひまわりの種の配列、オウムガイの殻、銀河の腕など、生物や天体で頻繁に観察される数学的パターンです。美の比例として古代から知られる黄金比（1:1.618...）を視覚化したものです。</p>
+            </div>
+            
+            <div id="pattern-description-17" class="pattern-description">
+                <h4>Percolation Theory <span class="algorithm-tag">Statistical Physics</span><span class="algorithm-tag">Phase Transition</span></h4>
+                <p>多孔質媒体中の流体浸透を研究する統計物理学の理論。ランダムに配置された障害物の中で、流体がどのように広がるかを解析します。森林火災の延焼、感染症の拡散、インターネットの接続性など、ネットワーク上の現象を理解する重要な概念です。</p>
+            </div>
+            
+            <div id="pattern-description-18" class="pattern-description">
+                <h4>Fractal Mountains <span class="algorithm-tag">Midpoint Displacement</span><span class="algorithm-tag">Procedural Generation</span></h4>
+                <p>中点変位法による地形生成アルゴリズム。線分の中点を上下にランダムにずらすことを再帰的に繰り返し、自然な山脈地形を作り出します。ゲームの地形生成や映画のCGで広く使われる、プロシージャル生成技術の基本例です。</p>
+            </div>
+            
+            <div id="pattern-description-19" class="pattern-description">
+                <h4>N-Body Gravity <span class="algorithm-tag">Newton's Law</span><span class="algorithm-tag">Numerical Integration</span></h4>
+                <p>ニュートンの万有引力法則に基づく多体問題のシミュレーション。複数の天体が互いに重力で引き合いながら軌道運動する様子を数値計算で再現します。太陽系、銀河、宇宙の大規模構造の形成を理解するための基本的な物理シミュレーションです。</p>
+            </div>
+            
+            <div id="pattern-description-20" class="pattern-description">
+                <h4>Boids Simulation <span class="algorithm-tag">Swarm Intelligence</span><span class="algorithm-tag">Emergent Behavior</span></h4>
+                <p>鳥の群れ（Boids = Bird-like Objects）の集団行動を3つの単純なルールで再現：①分離（近すぎる仲間から離れる）②整列（仲間と同じ方向に向く）③結合（仲間の中心に向かう）。個々は単純でも、全体として知的な群れ行動が創発する代表例です。</p>
+            </div>
+            
+            <div id="pattern-description-21" class="pattern-description">
+                <h4>Julia Set <span class="algorithm-tag">Complex Dynamics</span><span class="algorithm-tag">Holomorphic Functions</span></h4>
+                <p>複素力学系におけるジュリア集合。マンデルブロ集合の「仲間」で、パラメータcを固定して「z = z² + c」の反復を調べます。数学者ガストン・ジュリアにちなんで名付けられ、複素解析の美しさを表現する無限に複雑なフラクタル境界を持ちます。</p>
             </div>
         </div>
     </div>

@@ -64,8 +64,23 @@ class GenerativeArt {
             console.log('Added active class to:', selectedItem.textContent);
         }
         
+        // Show pattern description
+        this.showPatternDescription(patternId);
+        
         // Generate the pattern
         this.generatePattern(patternId);
+    }
+    
+    showPatternDescription(patternId) {
+        // Hide all descriptions
+        const descriptions = document.querySelectorAll('.pattern-description');
+        descriptions.forEach(desc => desc.classList.remove('active'));
+        
+        // Show selected description
+        const selectedDescription = document.getElementById(`pattern-description-${patternId}`);
+        if (selectedDescription) {
+            selectedDescription.classList.add('active');
+        }
     }
     
     generatePattern(patternId = null) {
@@ -89,6 +104,9 @@ class GenerativeArt {
             if (selectedItem) {
                 selectedItem.classList.add('active');
             }
+            
+            // Show description for random pattern
+            this.showPatternDescription(this.pattern);
         }
         
         console.log('Drawing pattern:', this.pattern);
